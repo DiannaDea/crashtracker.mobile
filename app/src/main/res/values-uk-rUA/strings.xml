@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CrashTracker.mobile</string>
+    <string name="emailLabel">Email</string>
+    <string name="passwordLabel">Password</string>
+    <string name="btnSignIn">Sign in</string>
+    <string name="txtWelcome">Welcome to CrashTracker!</string>
+</resources>
