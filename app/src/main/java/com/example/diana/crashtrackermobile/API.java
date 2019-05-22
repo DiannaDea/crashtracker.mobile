@@ -8,6 +8,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.Response;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
@@ -29,8 +30,8 @@ public class API extends Application {
         this.requestQueue = Volley.newRequestQueue(LoginActivity.getContext());
     }
 
-    public void getUserDevices(final VolleyCallback callback) {
-        String url = "https://crash-tracker-server.herokuapp.com/api/users/c2ccc569-caa2-45ac-8d7f-3c60dde45172/devices";
+    public void getUserDevices(String userId, final VolleyCallback callback) {
+        String url = String.format("%s/users/%s/devices", State.getInstance().getBaseUrl(), userId);
 
         JsonArrayRequest arrReq = new JsonArrayRequest(Request.Method.GET, url,
                 new Response.Listener<JSONArray>() {
@@ -59,6 +60,60 @@ public class API extends Application {
                        Log.e("==========Volley", error.toString());
                 }
             }
+        );
+        requestQueue.add(arrReq);
+    }
+
+    public void getDeviceInfo(final String deviceId, final VolleyCallback callback) {
+        String url = String.format("%s/devices/%s", State.getInstance().getBaseUrl(), deviceId);
+        JsonObjectRequest arrReq = new JsonObjectRequest(Request.Method.GET, url, (String)null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        DeviceInfo device = gson.fromJson(response.toString(), DeviceInfo.class);
+                        callback.onSuccess(device);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // If there a HTTP error then add a note to our repo list.
+                //setRepoListText("Error while calling REST API");
+                Log.e("==========Volley", error.toString());
+            }
+        }
+        );
+        requestQueue.add(arrReq);
+    }
+
+    public void getDeviceSectors(final String deviceId, final VolleyCallback callback) {
+        String url = String.format("%s/devices/%s/sectors", State.getInstance().getBaseUrl(), deviceId);
+        JsonArrayRequest arrReq = new JsonArrayRequest(Request.Method.GET, url,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        List<Sector> sectors = new ArrayList<Sector>();
+                        if (response.length() > 0) {
+                            for (int i = 0; i < response.length(); i++) {
+                                try {
+                                    JSONObject jsonObj = response.getJSONObject(i);
+                                    Sector sector = gson.fromJson(jsonObj.toString(), Sector.class);
+                                    sectors.add(sector);
+                                } catch (JSONException e) {
+                                    Log.e("Volley", "Invalid JSON Object.");
+                                }
+                            }
+                            callback.onSuccess(sectors);
+                        } else {
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // If there a HTTP error then add a note to our repo list.
+                //setRepoListText("Error while calling REST API");
+                Log.e("==========Volley", error.toString());
+            }
+        }
         );
         requestQueue.add(arrReq);
     }
