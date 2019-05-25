@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="btnPrimary">#1890ff</color>
+    <color name="btnDanger">#d9d9d9</color>
+    <color name="btnDefault">#fff</color>
+    <color name="textPrimary">#fff</color>
+    <color name="textDanger">#f5222d</color>
+    <color name="textDefault">#000</color>
 </resources>

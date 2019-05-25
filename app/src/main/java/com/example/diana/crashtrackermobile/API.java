@@ -117,4 +117,46 @@ public class API extends Application {
         );
         requestQueue.add(arrReq);
     }
+
+    public void startService(final String deviceId, final VolleyCallback callback) {
+        String url = String.format("%s/service/%s/start", State.getInstance().getBaseUrl(), deviceId);
+        JsonObjectRequest arrReq = new JsonObjectRequest(Request.Method.POST, url, (String)null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.i("========== Start", response.toString());
+                        callback.onSuccess(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // If there a HTTP error then add a note to our repo list.
+                //setRepoListText("Error while calling REST API");
+                Log.e("==========Volley", error.toString());
+            }
+        }
+        );
+        requestQueue.add(arrReq);
+    }
+
+    public void stopService(final String deviceId, final VolleyCallback callback) {
+        String url = String.format("%s/service/%s/stop", State.getInstance().getBaseUrl(), deviceId);
+        JsonObjectRequest arrReq = new JsonObjectRequest(Request.Method.POST, url, (String)null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.i("========== Stop", response.toString());
+                        callback.onSuccess(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // If there a HTTP error then add a note to our repo list.
+                //setRepoListText("Error while calling REST API");
+                Log.e("==========Volley", error.toString());
+            }
+        }
+        );
+        requestQueue.add(arrReq);
+    }
 }
