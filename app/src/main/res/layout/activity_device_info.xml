@@ -213,6 +213,7 @@
             android:background="@color/btnPrimary"
             android:insetLeft="0dp"
             android:insetRight="5dp"
+            android:onClick="goToSectorsListPage"
             android:text="@string/btnViewSectors"
             android:textColor="@color/textPrimary"
             app:backgroundTint="@color/btnPrimary" />

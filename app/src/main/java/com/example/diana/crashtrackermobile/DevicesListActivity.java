@@ -137,8 +137,5 @@ public class DevicesListActivity extends AppCompatActivity {
         deviceContainer.addView(buttonsContainer);
 
         this.devicesListLayout.addView(deviceContainer);
-
-
     }
-
 }

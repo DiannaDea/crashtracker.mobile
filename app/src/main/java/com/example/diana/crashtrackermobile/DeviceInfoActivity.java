@@ -1,7 +1,9 @@
 package com.example.diana.crashtrackermobile;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ public class DeviceInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_info);
+
         String deviceId = State.getInstance().getCurDeviceId();
 
         api.getDeviceInfo(deviceId, new VolleyCallback(){
@@ -43,5 +46,10 @@ public class DeviceInfoActivity extends AppCompatActivity {
 
         TextView deviceDescriptionField = findViewById(R.id.deviceDescriptionValue);
         deviceDescriptionField.setText(this.deviceInfo.description);
+    }
+
+    public void goToSectorsListPage(View view) {
+        Intent intent = new Intent(this, SectorsListActivity.class);
+        startActivity(intent);
     }
 }
