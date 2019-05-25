@@ -51,7 +51,7 @@ public class Utils {
 
         GradientDrawable shape =  new GradientDrawable();
         shape.setCornerRadius(12);
-        shape.setColor(context.getResources().getColor(R.color.btnDefault));
+        shape.setColor(context.getResources().getColor(R.color.btnDanger));
         btn.setText(text);
         btn.setBackground(shape);
         btn.setTextColor(context.getResources().getColor(R.color.textDefault));

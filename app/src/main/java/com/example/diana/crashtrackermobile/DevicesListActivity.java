@@ -19,7 +19,6 @@ import java.util.ArrayList;
 public class DevicesListActivity extends AppCompatActivity {
     API api = new API();
     LinearLayout devicesListLayout;
-    private static DevicesListActivity mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +35,6 @@ public class DevicesListActivity extends AppCompatActivity {
                 }
             }
         });
-        mContext = this;
-    }
-
-    public static DevicesListActivity getContext() {
-        return mContext;
     }
 
     public void clearDevicesListContent() {

@@ -9,4 +9,5 @@
     <color name="textPrimary">#fff</color>
     <color name="textDanger">#f5222d</color>
     <color name="textDefault">#000</color>
+    <color name="textMainColor">#001529</color>
 </resources>

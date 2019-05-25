@@ -17,7 +17,7 @@ public class State {
         return curDeviceId;
     }
 
-    public void setCurDeviceId(String userId) {
+    public void setCurDeviceId(String curDeviceId) {
         this.curDeviceId = curDeviceId;
     }
 

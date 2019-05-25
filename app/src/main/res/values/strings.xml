@@ -4,4 +4,14 @@
     <string name="passwordLabel">Password</string>
     <string name="btnSignIn">Sign in</string>
     <string name="txtWelcome">Welcome to CrashTracker!</string>
+    <string name="deviceNameLabel">Name:</string>
+    <string name="deviceInfoHeader">Device information</string>
+    <string name="deviceModelLabel">Model:</string>
+    <string name="deviceTypeLabel">Type:</string>
+    <string name="deviceServiceInterval">Service interval:</string>
+    <string name="deviceServiceIntervalLabel">Service interval:</string>
+    <string name="deviceNotifyLabel">Notify before service:</string>
+    <string name="deviceDescriptionLabel">Description:</string>
+    <string name="btnViewSectors">Sectors</string>
+    <string name="btnDeleteDevice">Delete</string>
 </resources>
