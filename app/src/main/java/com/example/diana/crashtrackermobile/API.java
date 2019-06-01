@@ -159,4 +159,46 @@ public class API extends Application {
         );
         requestQueue.add(arrReq);
     }
+
+    public void deleteDevice(final String deviceId, final VolleyCallback callback) {
+        String url = String.format("%s/devices/%s", State.getInstance().getBaseUrl(), deviceId);
+        JsonObjectRequest arrReq = new JsonObjectRequest(Request.Method.DELETE, url, (String)null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.i("========== Stop", response.toString());
+                        callback.onSuccess(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // If there a HTTP error then add a note to our repo list.
+                //setRepoListText("Error while calling REST API");
+                Log.e("==========Volley", error.toString());
+            }
+        }
+        );
+        requestQueue.add(arrReq);
+    }
+
+    public void deleteSector(final String sectorId, final VolleyCallback callback) {
+        String url = String.format("%s/sectors/%s", State.getInstance().getBaseUrl(), sectorId);
+        JsonObjectRequest arrReq = new JsonObjectRequest(Request.Method.DELETE, url, (String)null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.i("========== Stop", response.toString());
+                        callback.onSuccess(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // If there a HTTP error then add a note to our repo list.
+                //setRepoListText("Error while calling REST API");
+                Log.e("==========Volley", error.toString());
+            }
+        }
+        );
+        requestQueue.add(arrReq);
+    }
 }

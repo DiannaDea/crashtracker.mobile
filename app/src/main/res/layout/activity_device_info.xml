@@ -225,6 +225,7 @@
             android:layout_weight="1"
             android:background="@color/btnDanger"
             android:insetLeft="5dp"
+            android:onClick="deleteDevice"
             android:text="@string/btnDeleteDevice"
             android:textColor="@color/textDanger"
             app:backgroundTint="@color/btnDanger" />

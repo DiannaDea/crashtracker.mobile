@@ -52,4 +52,16 @@ public class DeviceInfoActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SectorsListActivity.class);
         startActivity(intent);
     }
+
+    public void deleteDevice(View view) {
+        String deviceId = State.getInstance().getCurDeviceId();
+
+        api.deleteDevice(deviceId, new VolleyCallback(){
+            @Override
+            public void onSuccess(Object deviceInfo){
+                Intent intent = new Intent(DeviceInfoActivity.this, DevicesListActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 }

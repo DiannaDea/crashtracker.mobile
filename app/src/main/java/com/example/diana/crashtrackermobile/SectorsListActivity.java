@@ -48,10 +48,22 @@ public class SectorsListActivity extends AppCompatActivity {
         LinearLayout.LayoutParams buttonsContainerParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         buttonsContainerParams.setMargins(0,40,20,20);
         buttonsContainer.setOrientation(LinearLayout.VERTICAL);
-        buttonsContainer.setLayoutParams(buttonsContainerParams);
+        buttonsContainer.setLayoutParams(buttonsContainerParams);g
 
         Button deleteBtn = Utils.createDangerBtn(this, "Delete");
         Button moreBtn = Utils.createDefaultBtn(this, "More");
+
+        deleteBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                api.deleteSector(sector.id, new VolleyCallback(){
+                    @Override
+                    public void onSuccess(Object response){
+                        Intent intent = new Intent(SectorsListActivity.this, DeviceInfoActivity.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+        });
 
         buttonsContainer.addView(moreBtn);
         buttonsContainer.addView(deleteBtn);
