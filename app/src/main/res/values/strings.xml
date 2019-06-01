@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CrashTracker.mobile</string>
+    <string name="app_name">CrashTracker</string>
     <string name="emailLabel">Email</string>
     <string name="passwordLabel">Password</string>
     <string name="btnSignIn">Sign in</string>
@@ -14,4 +14,14 @@
     <string name="deviceDescriptionLabel">Description:</string>
     <string name="btnViewSectors">Sectors</string>
     <string name="btnDeleteDevice">Delete</string>
+    <string name="headerDevicesList">Devices list</string>
+    <string name="headerSectorsList">Sectors list</string>
+    <string name="btnStartService">Start service</string>
+    <string name="btnStopService">Stop service</string>
+    <string name="btnMore">More</string>
+    <string name="labelNextService">Next service: </string>
+    <string name="labelSectorStatus">STATUS:</string>
+    <string name="labelMaxT">Max T:</string>
+    <string name="labelMinT">Min T:</string>
+    <string name="labelCurT">Current T:</string>
 </resources>

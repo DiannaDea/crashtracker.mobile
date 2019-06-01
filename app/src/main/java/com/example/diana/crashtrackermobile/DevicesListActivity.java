@@ -60,13 +60,13 @@ public class DevicesListActivity extends AppCompatActivity {
         buttonsContainer.setOrientation(LinearLayout.VERTICAL);
         buttonsContainer.setLayoutParams(buttonsContainerParams);
 
-        Button moreBtn = Utils.createDefaultBtn(this, "More");
+        Button moreBtn = Utils.createDefaultBtn(this, getResources().getString(R.string.btnMore));
         Button serviceBtn;
 
         if (device.status.code != 5) {
-            serviceBtn = Utils.createPrimaryBtn(this, "Start service");
+            serviceBtn = Utils.createPrimaryBtn(this, getResources().getString(R.string.btnStartService));
         } else {
-            serviceBtn = Utils.createDangerBtn(this, "Stop service");
+            serviceBtn = Utils.createDangerBtn(this, getResources().getString(R.string.btnStopService));
         }
 
         serviceBtn.setOnClickListener(new View.OnClickListener(){
@@ -155,7 +155,7 @@ public class DevicesListActivity extends AppCompatActivity {
         deviceTextContainer.addView(status);
 
         TextView nextService = new TextView(this);
-        nextService.setText("Next service: ".concat(new SimpleDateFormat("dd.MM.yyyy").format(device.dateLastService)));
+        nextService.setText(getResources().getString(R.string.labelNextService).concat(new SimpleDateFormat("dd.MM.yyyy").format(device.dateLastService)));
         deviceTextContainer.addView(nextService);
 
         deviceContainer.addView(deviceTextContainer);

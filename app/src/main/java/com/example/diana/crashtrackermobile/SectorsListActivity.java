@@ -55,8 +55,8 @@ public class SectorsListActivity extends AppCompatActivity {
         buttonsContainer.setOrientation(LinearLayout.VERTICAL);
         buttonsContainer.setLayoutParams(buttonsContainerParams);
 
-        Button deleteBtn = Utils.createDangerBtn(this, "Delete");
-        Button moreBtn = Utils.createDefaultBtn(this, "More");
+        Button deleteBtn = Utils.createDangerBtn(this, getResources().getString(R.string.btnDeleteDevice));
+        Button moreBtn = Utils.createDefaultBtn(this, getResources().getString(R.string.btnMore));
 
         deleteBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -91,19 +91,19 @@ public class SectorsListActivity extends AppCompatActivity {
         sectorTextContainer.addView(name);
 
         TextView status = new TextView(this);
-        status.setText(String.format("STATUS: %s", sector.status.name));
+        status.setText(String.format("%s %s", getResources().getString(R.string.labelSectorStatus), sector.status.name));
         sectorTextContainer.addView(status);
 
         TextView maxT = new TextView(this);
-        maxT.setText(String.format("Max T: %.0f °C", sector.maxTemperature));
+        maxT.setText(String.format("%s %.0f °C",getResources().getString(R.string.labelMaxT), sector.maxTemperature));
         sectorTextContainer.addView(maxT);
 
         TextView minT = new TextView(this);
-        minT.setText(String.format("Min T: %.0f °C", sector.minTemperature));
+        minT.setText(String.format("%s %.0f °C", getResources().getString(R.string.labelMinT), sector.minTemperature));
         sectorTextContainer.addView(minT);
 
         TextView curT = new TextView(this);
-        curT.setText(String.format("Current T: %.0f °C", sector.status.currentTemp));
+        curT.setText(String.format("%s %.0f °C", getResources().getString(R.string.labelCurT), sector.status.currentTemp));
         sectorTextContainer.addView(curT);
 
         sectorContainer.addView(sectorTextContainer);

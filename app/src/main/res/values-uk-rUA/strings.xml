@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CrashTracker.mobile</string>
-    <string name="emailLabel">Email</string>
-    <string name="passwordLabel">Password</string>
-    <string name="btnSignIn">Sign in</string>
-    <string name="txtWelcome">Welcome to CrashTracker!</string>
+    <string name="app_name">CrashTracker</string>
+    <string name="emailLabel">Ел. пошта</string>
+    <string name="passwordLabel">Пароль</string>
+    <string name="btnSignIn">Увійти</string>
+    <string name="txtWelcome">Вітаємо!</string>
+    <string name="deviceNameLabel">Назва:</string>
+    <string name="deviceInfoHeader">Інформація про пристрій</string>
+    <string name="deviceModelLabel">Модель:</string>
+    <string name="deviceTypeLabel">Тип пристрою:</string>
+    <string name="deviceServiceInterval">Інтервал обслуговування:</string>
+    <string name="deviceServiceIntervalLabel">Інтервал обслуговування:</string>
+    <string name="deviceNotifyLabel">Повідомити перед сервісом:</string>
+    <string name="deviceDescriptionLabel">Опис:</string>
+    <string name="btnViewSectors">Сектори</string>
+    <string name="btnDeleteDevice">Видалити</string>
+    <string name="headerDevicesList">Список пристроїв</string>
+    <string name="headerSectorsList">Список юнітів</string>
+    <string name="btnStartService">Розпочати ТО</string>
+    <string name="btnStopService">Зупинити ТО</string>
+    <string name="btnMore">Більше</string>
+    <string name="labelNextService">Наступне ТО: </string>
+    <string name="labelSectorStatus">СТАТУС:</string>
+    <string name="labelMaxT">Макс T:</string>
+    <string name="labelMinT">Мін T:</string>
+    <string name="labelCurT">Поточна T:</string>
 </resources>
