@@ -15,8 +15,12 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONException;
+
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class API extends Application {
@@ -28,6 +32,57 @@ public class API extends Application {
         this.baseUrl = State.getInstance().getBaseUrl();
         this.gson = new Gson();
         this.requestQueue = Volley.newRequestQueue(LoginActivity.getContext());
+    }
+
+    public void login(String email, String password, final VolleyCallback callback) {
+        Map<String, String> params = new HashMap();
+        params.put("email", email);
+        params.put("password", password);
+
+        JSONObject bodyParams = new JSONObject(params);
+
+        String url = String.format("%s/auth/signin", State.getInstance().getBaseUrl());
+        JsonObjectRequest arrReq = new JsonObjectRequest(Request.Method.POST, url, bodyParams,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Token token = gson.fromJson(response.toString(), Token.class);
+                        callback.onSuccess(token);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                try {
+                    String message = new String(error.networkResponse.data,"UTF-8");
+                    callback.onError(message);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        );
+        requestQueue.add(arrReq);
+    }
+
+    public void getUserInfo(String email, final VolleyCallback callback) {
+        String url = String.format("%s/users/%s", State.getInstance().getBaseUrl(), email);
+        JsonObjectRequest arrReq = new JsonObjectRequest(Request.Method.GET, url, (String)null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        User user = gson.fromJson(response.toString(), User.class);
+                        callback.onSuccess(user);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // If there a HTTP error then add a note to our repo list.
+                //setRepoListText("Error while calling REST API");
+                Log.e("==========Volley", error.toString());
+            }
+        }
+        );
+        requestQueue.add(arrReq);
     }
 
     public void getUserDevices(String userId, final VolleyCallback callback) {

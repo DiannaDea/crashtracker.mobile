@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtWelcome" />
 
     <EditText
-        android:id="@+id/passwordLabel"
+        android:id="@+id/passwordInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -47,11 +47,11 @@
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/passwordInput"
+        app:layout_constraintStart_toEndOf="@+id/passwordLabel"
         app:layout_constraintTop_toBottomOf="@+id/emailInput" />
 
     <TextView
-        android:id="@+id/passwordInput"
+        android:id="@+id/passwordLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -59,8 +59,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/passwordLabel"
-        app:layout_constraintBaseline_toBaselineOf="@+id/passwordLabel"
-        app:layout_constraintEnd_toStartOf="@+id/passwordLabel"
+        app:layout_constraintBaseline_toBaselineOf="@+id/passwordInput"
+        app:layout_constraintEnd_toStartOf="@+id/passwordInput"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
 
     <TextView
         android:id="@+id/txtWelcome"
@@ -94,4 +94,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loginError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:textColor="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
 </android.support.constraint.ConstraintLayout>

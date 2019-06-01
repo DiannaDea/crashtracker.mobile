@@ -25,6 +25,11 @@ public class DeviceInfoActivity extends AppCompatActivity {
                 DeviceInfoActivity.this.deviceInfo = (DeviceInfo) deviceInfo;
                 DeviceInfoActivity.this.setDeviceInfo();
             }
+
+            @Override
+            public void onError(Object error) {
+
+            }
         });
     }
 
@@ -61,6 +66,11 @@ public class DeviceInfoActivity extends AppCompatActivity {
             public void onSuccess(Object deviceInfo){
                 Intent intent = new Intent(DeviceInfoActivity.this, DevicesListActivity.class);
                 startActivity(intent);
+            }
+
+            @Override
+            public void onError(Object error) {
+
             }
         });
     }

@@ -33,6 +33,11 @@ public class SectorsListActivity extends AppCompatActivity {
                     addSectorToList(sector);
                 }
             }
+
+            @Override
+            public void onError(Object error) {
+
+            }
         });
     }
 
@@ -60,6 +65,11 @@ public class SectorsListActivity extends AppCompatActivity {
                     public void onSuccess(Object response){
                         Intent intent = new Intent(SectorsListActivity.this, DeviceInfoActivity.class);
                         startActivity(intent);
+                    }
+
+                    @Override
+                    public void onError(Object error) {
+
                     }
                 });
             }

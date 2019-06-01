@@ -27,12 +27,17 @@ public class DevicesListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_devices_list);
         this.devicesListLayout = (LinearLayout) findViewById(R.id.devicesList);
 
-        api.getUserDevices("2b14b4a5-bf74-43d5-be95-792cd9738ee2", new VolleyCallback(){
+        api.getUserDevices(State.getInstance().getUserId(), new VolleyCallback(){
             @Override
             public void onSuccess(Object devices){
                 for(Device device : (ArrayList<Device>)devices) {
                     addVotingToList(device);
                 }
+            }
+
+            @Override
+            public void onError(Object error) {
+
             }
         });
     }
@@ -71,14 +76,24 @@ public class DevicesListActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Object response){
                             DevicesListActivity.this.clearDevicesListContent();
-                            api.getUserDevices("2b14b4a5-bf74-43d5-be95-792cd9738ee2", new VolleyCallback(){
+                            api.getUserDevices(State.getInstance().getUserId(), new VolleyCallback(){
                                 @Override
                                 public void onSuccess(Object devices){
                                     for(Device device : (ArrayList<Device>)devices) {
                                         addVotingToList(device);
                                     }
                                 }
+
+                                @Override
+                                public void onError(Object error) {
+
+                                }
                             });
+                        }
+
+                        @Override
+                        public void onError(Object error) {
+
                         }
                     });
                 } else {
@@ -86,14 +101,24 @@ public class DevicesListActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Object response){
                             DevicesListActivity.this.clearDevicesListContent();
-                            api.getUserDevices("2b14b4a5-bf74-43d5-be95-792cd9738ee2", new VolleyCallback(){
+                            api.getUserDevices(State.getInstance().getUserId(), new VolleyCallback(){
                                 @Override
                                 public void onSuccess(Object devices){
                                     for(Device device : (ArrayList<Device>)devices) {
                                         addVotingToList(device);
                                     }
                                 }
+
+                                @Override
+                                public void onError(Object error) {
+
+                                }
                             });
+                        }
+
+                        @Override
+                        public void onError(Object error) {
+
                         }
                     });
                 }
