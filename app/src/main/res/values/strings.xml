@@ -19,7 +19,7 @@
     <string name="btnStartService">Start service</string>
     <string name="btnStopService">Stop service</string>
     <string name="btnMore">More</string>
-    <string name="labelNextService">Next service: </string>
+    <string name="labelNextService">Next service</string>
     <string name="labelSectorStatus">STATUS:</string>
     <string name="labelMaxT">Max T:</string>
     <string name="labelMinT">Min T:</string>

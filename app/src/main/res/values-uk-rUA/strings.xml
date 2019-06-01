@@ -20,7 +20,7 @@
     <string name="btnStartService">Розпочати ТО</string>
     <string name="btnStopService">Зупинити ТО</string>
     <string name="btnMore">Більше</string>
-    <string name="labelNextService">Наступне ТО: </string>
+    <string name="labelNextService">Наступне ТО</string>
     <string name="labelSectorStatus">СТАТУС:</string>
     <string name="labelMaxT">Макс T:</string>
     <string name="labelMinT">Мін T:</string>

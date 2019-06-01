@@ -51,7 +51,7 @@ public class SectorsListActivity extends AppCompatActivity {
 
         LinearLayout buttonsContainer = new LinearLayout(this);
         LinearLayout.LayoutParams buttonsContainerParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        buttonsContainerParams.setMargins(0,40,20,20);
+        buttonsContainerParams.setMargins(20,90,20,20);
         buttonsContainer.setOrientation(LinearLayout.VERTICAL);
         buttonsContainer.setLayoutParams(buttonsContainerParams);
 
@@ -86,24 +86,20 @@ public class SectorsListActivity extends AppCompatActivity {
         sectorTextContainer.setBackgroundColor(Color.parseColor("#eaeaea"));
         sectorTextContainer.setLayoutParams(sectorTextParams);
 
-        TextView name = new TextView(this);
-        name.setText(sector.name);
+
+        TextView name = Utils.getTextView(this, sector.name, false);
         sectorTextContainer.addView(name);
 
-        TextView status = new TextView(this);
-        status.setText(String.format("%s %s", getResources().getString(R.string.labelSectorStatus), sector.status.name));
+        TextView status = Utils.getTextView(this, String.format("%s %s", getResources().getString(R.string.labelSectorStatus), sector.status.name), true);
         sectorTextContainer.addView(status);
 
-        TextView maxT = new TextView(this);
-        maxT.setText(String.format("%s %.0f °C",getResources().getString(R.string.labelMaxT), sector.maxTemperature));
+        TextView maxT = Utils.getTextView(this, String.format("%s %.0f °C",getResources().getString(R.string.labelMaxT), sector.maxTemperature), false);
         sectorTextContainer.addView(maxT);
 
-        TextView minT = new TextView(this);
-        minT.setText(String.format("%s %.0f °C", getResources().getString(R.string.labelMinT), sector.minTemperature));
+        TextView minT = Utils.getTextView(this, String.format("%s %.0f °C", getResources().getString(R.string.labelMinT), sector.minTemperature), false);
         sectorTextContainer.addView(minT);
 
-        TextView curT = new TextView(this);
-        curT.setText(String.format("%s %.0f °C", getResources().getString(R.string.labelCurT), sector.status.currentTemp));
+        TextView curT = Utils.getTextView(this, String.format("%s %.0f °C", getResources().getString(R.string.labelCurT), sector.status.currentTemp), true);
         sectorTextContainer.addView(curT);
 
         sectorContainer.addView(sectorTextContainer);

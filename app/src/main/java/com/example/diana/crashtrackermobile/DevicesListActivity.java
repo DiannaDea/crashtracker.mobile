@@ -146,16 +146,14 @@ public class DevicesListActivity extends AppCompatActivity {
         deviceTextContainer.setBackgroundColor(Color.parseColor("#eaeaea"));
         deviceTextContainer.setLayoutParams(deviceTextParams);
 
-        TextView name = new TextView(this);
-        name.setText(device.name);
+        TextView name = Utils.getTextView(this, device.name, false);
         deviceTextContainer.addView(name);
 
-        TextView status = new TextView(this);
-        status.setText(device.status.name);
+        TextView status = Utils.getTextView(this, device.status.name, true);
         deviceTextContainer.addView(status);
 
-        TextView nextService = new TextView(this);
-        nextService.setText(getResources().getString(R.string.labelNextService).concat(new SimpleDateFormat("dd.MM.yyyy").format(device.dateLastService)));
+        String nextServiceDate = String.format("%s: %s", getResources().getString(R.string.labelNextService), new SimpleDateFormat("dd.MM.yyyy").format(device.dateLastService));
+        TextView nextService = Utils.getTextView(this, nextServiceDate, false);
         deviceTextContainer.addView(nextService);
 
         deviceContainer.addView(deviceTextContainer);
