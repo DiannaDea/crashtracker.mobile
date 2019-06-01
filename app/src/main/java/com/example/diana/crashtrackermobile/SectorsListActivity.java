@@ -48,7 +48,7 @@ public class SectorsListActivity extends AppCompatActivity {
         LinearLayout.LayoutParams buttonsContainerParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         buttonsContainerParams.setMargins(0,40,20,20);
         buttonsContainer.setOrientation(LinearLayout.VERTICAL);
-        buttonsContainer.setLayoutParams(buttonsContainerParams);g
+        buttonsContainer.setLayoutParams(buttonsContainerParams);
 
         Button deleteBtn = Utils.createDangerBtn(this, "Delete");
         Button moreBtn = Utils.createDefaultBtn(this, "More");
